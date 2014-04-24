@@ -24,6 +24,7 @@ t('moduleA.translationKey')
 Example:
 --------
 
+First create a language specific object for your translations:
 ```
 var yourTranslationsObject = {
     like: 'I like this.',
@@ -57,7 +58,16 @@ var yourTranslationsObject = {
         like: 'I like this namespace.',
     }
 }
+```
 
+Then bind the translation function to something short:
+```
+//2nd param: true for debug mode in console.log
+var t = tinyTranslate.getTranslationFunction(yourTranslationsObject, true)
+```
+
+And use it like this:
+```
 //simple
 t('like') => 'I like this.'
 t('Prosa Key') => 'This is prosa!'
