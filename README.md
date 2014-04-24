@@ -1,11 +1,13 @@
-translate.js
-============
+translate.js (v0.0.1)
+=====================
 
 Javascript micro library for translations (i18n) with support for placeholders and multiple plural forms.
 
-v0.0.1
 
 Usage:
+------
+
+```
 var yourTranslationsObject = {
   translationKey: 'translationValue'
 }
@@ -17,9 +19,12 @@ t('translationKey', 2)
 t('translationKey', {replaceKey: 'replacevalue'})
 t('translationKey', 2, {replaceKey: 'replacevalue'})
 t('moduleA.translationKey')
+```
 
 Example:
+--------
 
+```
 var yourTranslationsObject = {
     like: 'I like this.',
     likeThing: 'I like {thing}!',
@@ -52,3 +57,24 @@ var yourTranslationsObject = {
         like: 'I like this namespace.',
     }
 }
+
+//simple
+t('like') => 'I like this.'
+t('Prosa Key') => 'This is prosa!'
+
+//palceholders
+t('likeThing', {thing: 'the Sun'}) => 'I like the Sun!'
+
+//count
+t('simpleCounter', 25) => 'The count is 25'
+t('hits', 0) => 'No Hits'
+t('hits', 1) => '1 Hit'
+t('hits', 3) => '3 Hitses'
+t('hits', 99) => '99 Hits'
+
+//combined count and placeholders
+t('date', 2, {day: '13', year: 2014}) => '13. February 2014'
+
+//namespace support
+t('namespaceA:like') => 'I like this namespace.'
+```
