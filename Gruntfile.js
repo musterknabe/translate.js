@@ -18,10 +18,10 @@ module.exports = function(grunt) {
       options: {
         mangle: false,
         banner: '' +
-          '/* <%= pkg.title || pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-          '<%= pkg.homepage ? " * " + pkg.homepage + "\\n" : "" %>' +
-          ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; \n' +
-          ' * Licensed under <%= pkg.license %> license. \n' + 
+          '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+          '<%= pkg.homepage ? " *  " + pkg.homepage + "\\n" : "" %>' +
+          ' *  Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\n' +
+          ' *  Licensed under <%= pkg.license %> license\n' + 
           ' */\n',
       },
       default: {
