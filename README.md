@@ -15,10 +15,11 @@ var yourTranslationsObject = {
 var t = tinyTranslate.getTranslationFunction(yourTranslationsObject, debugModeBoolean)
 
 t('translationKey')
-t('translationKey', 2)
+t('translationKey', count)
 t('translationKey', {replaceKey: 'replacevalue'})
-t('translationKey', 2, {replaceKey: 'replacevalue'})
-t('moduleA.translationKey')
+t('translationKey', count, {replaceKey: 'replacevalue'})
+t('translationKey', {replaceKey: 'replacevalue'}, count)
+t('moduleA::translationKey')
 ```
 
 Example:
@@ -86,5 +87,5 @@ t('hits', 99) => '99 Hits'
 t('date', 2, {day: '13', year: 2014}) => '13. February 2014'
 
 //namespace support
-t('namespaceA:like') => 'I like this namespace.'
+t('namespaceA::like') => 'I like this namespace.'
 ```
