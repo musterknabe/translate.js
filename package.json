@@ -1,13 +1,41 @@
 {
   "name": "translate.js",
-  "version": "0.1.0",
-  "description": "Javascript micro library",
+  "version": "0.0.1",
+  "description": "Javascript micro library for translations (i18n) with support for placeholders and multiple plural forms.",
+  "main": "Gruntfile.js",
+  "dependencies": {
+  },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-uglify": "0.4.0",
-    "grunt-contrib-jshint": "0.8.0",
-    "grunt-contrib-watch": "0.5.3",
-    "grunt-contrib-copy": "0.5.0",
-    "grunt-contrib-jasmine": "0.6.0"
-  }
+    "grunt": "~0.4.4",
+    "grunt-contrib-jasmine": "~0.6.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-copy": "~0.5.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/musterknabe/translate.js.git"
+  },
+  "keywords": [
+    "translation",
+    "translate",
+    "i18n",
+    "js",
+    "javascript",
+    "micro",
+    "library"
+  ],
+  "author": {
+    "name": "Jonas Girnatis",
+    "email": "dermusterknabe@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/musterknabe/translate.js/issues"
+  },
+  "homepage": "https://github.com/musterknabe/translate.js"
 }
