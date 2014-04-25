@@ -57,7 +57,7 @@ describe("translate.js", function() {
 	    }
 	}
 
-	var t = tinyTranslate.getTranslationFunction(translationsObject);
+	var t = libTranslate.getTranslationFunction(translationsObject);
 
 	it("should return @@translationKey@@ if no translation is found", function() {
 		expect(t('nonexistentkey')).toEqual('@@nonexistentkey@@');

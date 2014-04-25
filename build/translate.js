@@ -8,7 +8,7 @@
  *   translationKey: 'translationValue'
  * }
  *
- * var t = tinyTranslate.getTranslationFunction(yourTranslationsObject, debugModeBoolean)
+ * var t = libTranslate.getTranslationFunction(yourTranslationsObject, debugModeBoolean)
  *
  * t('translationKey')
  * t('translationKey', 2)
@@ -29,7 +29,7 @@
     var isObject = function(obj) { return typeof obj === 'object' && obj !== null; };
     var isString = function(obj) { return Object.prototype.toString.call(obj) === '[object String]'; };
 
-    window.tinyTranslate = {
+    window.libTranslate = {
         getTranslationFunction: function(messageObject, debug) {
             function getTranslationValue(translationKey) {
                 if(messageObject[translationKey]) {

@@ -12,7 +12,7 @@ var yourTranslationsObject = {
   translationKey: 'translationValue'
 }
 
-var t = tinyTranslate.getTranslationFunction(yourTranslationsObject, debugModeBoolean)
+var t = libTranslate.getTranslationFunction(yourTranslationsObject, debugModeBoolean)
 
 t('translationKey')
 t('translationKey', count)
@@ -64,7 +64,7 @@ var yourTranslationsObject = {
 Then bind the translation function to something short:
 ```
 //2nd param: true for debug mode in console.log
-var t = tinyTranslate.getTranslationFunction(yourTranslationsObject, true)
+var t = libTranslate.getTranslationFunction(yourTranslationsObject, true)
 ```
 
 And use it like this:
