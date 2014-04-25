@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        mangle: false,
+        mangle: true,
         banner: '' +
           '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
           '<%= pkg.homepage ? " *  " + pkg.homepage + "\\n" : "" %>' +
