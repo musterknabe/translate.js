@@ -1,4 +1,4 @@
-translate.js (v0.0.1)
+translate.js (v0.0.2)
 =====================
 
 Javascript micro library for translations (i18n) with support for placeholders and multiple plural forms.
@@ -7,12 +7,17 @@ Size: ~800 byte minified and gziped
 Usage:
 ------
 
-```
-var yourTranslationsObject = {
+```JavaScript
+var messages = {
   translationKey: 'translationValue'
 }
 
-var t = libTranslate.getTranslationFunction(yourTranslationsObject, debugModeBoolean)
+var options = {
+    debug: true, //[Boolean]: Logs missing translations to console. Defaults to false.
+    namespaceSplitter: '.' //[String|RegExp]: You can customize the part which splits namespace and translationKeys. Defaults to '::'.
+}
+
+var t = libTranslate.getTranslationFunction(messages, [options])
 
 t('translationKey')
 t('translationKey', count)
@@ -20,14 +25,16 @@ t('translationKey', {replaceKey: 'replacevalue'})
 t('translationKey', count, {replaceKey: 'replacevalue'})
 t('translationKey', {replaceKey: 'replacevalue'}, count)
 t('moduleA::translationKey')
+
 ```
 
 Example:
 --------
 
 First create a language specific object for your translations:
-```
-var yourTranslationsObject = {
+
+```JavaScript
+var messages = {
     like: 'I like this.',
     likeThing: 'I like {thing}!',
     simpleCounter: 'The count is {n}.',
@@ -62,16 +69,18 @@ var yourTranslationsObject = {
 ```
 
 Then bind the translation function to something short:
-```
-//2nd param: true for debug mode in console.log
-var t = libTranslate.getTranslationFunction(yourTranslationsObject, true)
+```JavaScript
+var t = libTranslate.getTranslationFunction(messages)
 ```
 
 And use it like this:
-```
+```JavaScript
 //simple
 t('like') => 'I like this.'
 t('Prosa Key') => 'This is prosa!'
+
+//namespace support
+t('namespaceA::like') => 'I like this namespace.'
 
 //palceholders
 t('likeThing', {thing: 'the Sun'}) => 'I like the Sun!'
@@ -86,6 +95,4 @@ t('hits', 99) => '99 Hits'
 //combined count and placeholders
 t('date', 2, {day: '13', year: 2014}) => '13. February 2014'
 
-//namespace support
-t('namespaceA::like') => 'I like this namespace.'
 ```

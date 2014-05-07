@@ -165,6 +165,29 @@ describe("translate.js", function() {
 		expect(t('namespaceA::date', 2, {day: '13', year: 2014})).toEqual('13. February 2014');
 	});
 
+	//every thing with namespace support + custom namespace splitter
+
+	var t1 = libTranslate.getTranslationFunction(translationsObject, {namespaceSplitter: new RegExp('\\.')});
+	it("should return a translated string with the correct plural form and replaced placeholders: t(key, count, replacements) [namespace support + RegExp splitter]", function() {
+		expect(t1('namespaceA.date', 2, {day: '13', year: 2014})).toEqual('13. February 2014');
+	});
+
+	var t2 = libTranslate.getTranslationFunction(translationsObject, {namespaceSplitter: /\./});
+	it("should return a translated string with the correct plural form and replaced placeholders: t(key, count, replacements) [namespace support + Inline RegExp splitter]", function() {
+		expect(t2('namespaceA.date', 2, {day: '13', year: 2014})).toEqual('13. February 2014');
+	});
+
+	var t3 = libTranslate.getTranslationFunction(translationsObject, {namespaceSplitter: '.'});
+	it("should return a translated string with the correct plural form and replaced placeholders: t(key, count, replacements) [namespace support + String splitter]", function() {
+		expect(t3('namespaceA.date', 2, {day: '13', year: 2014})).toEqual('13. February 2014');
+	});
+
+	//wrong arguments
+	var t4 = libTranslate.getTranslationFunction(translationsObject, 'asd');
+	it("should return a translated string with the correct plural form and replaced placeholders: t(key, count, replacements) [namespace support + wrong options arg]", function() {
+		expect(t4('namespaceA::date', 2, {day: '13', year: 2014})).toEqual('13. February 2014');
+	});
+
 	// it("should return ", function() {
 	// 	expect(t()).toEqual();
 	// });

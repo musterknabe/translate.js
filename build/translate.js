@@ -1,7 +1,7 @@
 /**
  * Microlib for translations with support for placeholders and multiple plural forms.
  *
- * v0.0.1
+ * v0.0.2
  *
  * Usage:
  * var yourTranslationsObject = {
@@ -30,13 +30,18 @@
     var isString = function(obj) { return Object.prototype.toString.call(obj) === '[object String]'; };
 
     window.libTranslate = {
-        getTranslationFunction: function(messageObject, debug) {
+        getTranslationFunction: function(messageObject, options) {
+            options = isObject(options) ? options : {};
+
+            var debug = options.debug;
+            var namespaceSplitter = options.namespaceSplitter || '::';
+
             function getTranslationValue(translationKey) {
                 if(messageObject[translationKey]) {
                     return messageObject[translationKey];
                 }
 
-                var components = translationKey.split('::'); //@todo make this more robust. maybe support more levels?
+                var components = translationKey.split(namespaceSplitter); //@todo make this more robust. maybe support more levels?
                 var namespace = components[0];
                 var key = components[1];
              
