@@ -4,17 +4,26 @@
  * v0.0.2
  *
  * Usage:
- * var yourTranslationsObject = {
- *   translationKey: 'translationValue'
+ * var messages = {
+ *   translationKey: 'translationValue',
+ *   moduleA: {
+ *       translationKey: 'value123'
+ *   }
  * }
- *
- * var t = libTranslate.getTranslationFunction(yourTranslationsObject, debugModeBoolean)
- *
+ * 
+ * var options = {
+ *     debug: true, //[Boolean]: Logs missing translations to console. Defaults to false.
+ *     namespaceSplitter: '::' //[String|RegExp]: You can customize the part which splits namespace and translationKeys. Defaults to '::'.
+ * }
+ * 
+ * var t = libTranslate.getTranslationFunction(messages, [options])
+ * 
  * t('translationKey')
- * t('translationKey', 2)
+ * t('translationKey', count)
  * t('translationKey', {replaceKey: 'replacevalue'})
- * t('translationKey', 2, {replaceKey: 'replacevalue'})
- * t('moduleA.translationKey')
+ * t('translationKey', count, {replaceKey: 'replacevalue'})
+ * t('translationKey', {replaceKey: 'replacevalue'}, count)
+ * t('moduleA::translationKey')
  *
  *
  * @author Jonas Girnatis <dermusterknabe@gmail.com>
