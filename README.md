@@ -2,7 +2,8 @@ translate.js (v0.0.2)
 =====================
 
 Javascript micro library for translations (i18n) with support for placeholders and multiple plural forms.
-Size: ~800 byte minified and gziped 
+
+Size: ~800 bytes minified and gziped.
 
 Usage:
 ------
