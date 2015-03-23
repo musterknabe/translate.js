@@ -1,4 +1,4 @@
-translate.js (v0.0.2)
+translate.js (v1.0.0)
 =====================
 
 Javascript micro library for translations (i18n) with support for placeholders and multiple plural forms.
@@ -14,7 +14,7 @@ var messages = {
 }
 
 var options = {
-    debug: true, //[Boolean]: Logs missing translations to console. Defaults to false.
+    debug: true, //[Boolean]: Logs missing translations to console and adds @@-markers around output. Defaults to false.
     namespaceSplitter: '.' //[String|RegExp]: You can customize the part which splits namespace and translationKeys. Defaults to '::'.
 }
 
