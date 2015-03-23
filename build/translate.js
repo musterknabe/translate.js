@@ -1,7 +1,7 @@
 /**
  * Microlib for translations with support for placeholders and multiple plural forms.
  *
- * v0.0.2
+ * v1.0.0
  *
  * Usage:
  * var messages = {
@@ -12,7 +12,7 @@
  * }
  * 
  * var options = {
- *     debug: true, //[Boolean]: Logs missing translations to console. Defaults to false.
+ *     debug: true, //[Boolean]: Logs missing translations to console and adds @@-markers around output. Defaults to false.
  *     namespaceSplitter: '::' //[String|RegExp]: You can customize the part which splits namespace and translationKeys. Defaults to '::'.
  * }
  * 
