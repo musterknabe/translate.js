@@ -59,8 +59,8 @@ describe("translate.js", function() {
 
 	var t = libTranslate.getTranslationFunction(translationsObject);
 
-	it("should return @@translationKey@@ if no translation is found", function() {
-		expect(t('nonexistentkey')).toEqual('@@nonexistentkey@@');
+	it("should return translationKey if no translation is found", function() {
+		expect(t('nonexistentkey')).toEqual('nonexistentkey');
 	});
 
 	it("should return a translated string", function() {
@@ -113,10 +113,6 @@ describe("translate.js", function() {
 
 
 	//every thing with namespace support
-	it("should return @@translationKey@@ if no translation is found [namespace support]", function() {
-		expect(t('namespaceA::nonexistentkey')).toEqual('@@namespaceA::nonexistentkey@@');
-	});
-
 	it("should return a translated string [namespace support]", function() {
 		expect(t('namespaceA::plain')).toEqual('I like this.');
 	});
@@ -187,6 +183,18 @@ describe("translate.js", function() {
 	it("should return a translated string with the correct plural form and replaced placeholders: t(key, count, replacements) [namespace support + wrong options arg]", function() {
 		expect(t4('namespaceA::date', 2, {day: '13', year: 2014})).toEqual('13. February 2014');
 	});
+
+
+	//debug enabled
+	var t5 = libTranslate.getTranslationFunction(translationsObject, {debug: true});
+	it("should return @@translationKey@@ if no translation is found and debug is true", function() {
+		expect(t5('nonexistentkey')).toEqual('@@nonexistentkey@@');
+	});
+
+	it("should return @@translationKey@@ if no translation is found [namespace support]", function() {
+		expect(t5('namespaceA::nonexistentkey')).toEqual('@@namespaceA::nonexistentkey@@');
+	});
+
 
 	// it("should return ", function() {
 	// 	expect(t()).toEqual();
