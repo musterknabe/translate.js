@@ -114,12 +114,11 @@
                 translation = replacePlaceholders(translation, replacements);
 
                 if (translation === null) {
-                    if (debug) {
-                        console.log('Translation for "' + translationKey + '" not found.');
-                        return '@@' + translationKey + '@@';
-                    }
+                    translation = debug ? '@@' + translationKey + '@@' : translationKey;
+                }
 
-                    return translationKey;
+                if (debug) {
+                    console.log('Translation for "' + translationKey + '" not found.');
                 }
 
                 return translation;
