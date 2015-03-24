@@ -115,10 +115,10 @@
 
                 if (translation === null) {
                     translation = debug ? '@@' + translationKey + '@@' : translationKey;
-                }
 
-                if (debug) {
-                    console.log('Translation for "' + translationKey + '" not found.');
+                    if (debug) {
+                        console.log('Translation for "' + translationKey + '" not found.');
+                    }
                 }
 
                 return translation;
