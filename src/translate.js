@@ -1,7 +1,7 @@
 /**
  * Microlib for translations with support for placeholders and multiple plural forms.
  *
- * v1.0.0
+ * v1.0.1
  *
  * Usage:
  * var messages = {
