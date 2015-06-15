@@ -25,7 +25,7 @@ describe("translate.js", function() {
             12: '{day}. December {year}'
         },
 
-        'Prosa Key': 'This is prosa!',
+        'Prose Key': 'This is prose!',
 
 	    namespaceA: {
 	        plain: 'I like this.',
@@ -53,7 +53,7 @@ describe("translate.js", function() {
 	            12: '{day}. December {year}'
 	        },
 
-	        'Prosa Key': 'This is prosa!'
+	        'Prose Key': 'This is prose!'
 	    }
 	}
 
@@ -67,8 +67,8 @@ describe("translate.js", function() {
 		expect(t('plain')).toEqual('I like this.');
 	});
 
-	it("should return a translated string for prosa keys", function() {
-		expect(t('Prosa Key')).toEqual('This is prosa!');
+	it("should return a translated string for prose keys", function() {
+		expect(t('Prose Key')).toEqual('This is prose!');
 	});
 
 	it("should return a translated string and replace a placeholder ", function() {
@@ -117,8 +117,8 @@ describe("translate.js", function() {
 		expect(t('namespaceA::plain')).toEqual('I like this.');
 	});
 
-	it("should return a translated string for prosa keys  [namespace support]", function() {
-		expect(t('namespaceA::Prosa Key')).toEqual('This is prosa!');
+	it("should return a translated string for prose keys  [namespace support]", function() {
+		expect(t('namespaceA::Prose Key')).toEqual('This is prose!');
 	});
 
 	it("should return a translated string and replace a placeholder  [namespace support]", function() {

@@ -61,7 +61,7 @@ var messages = {
         12: '{day}. December {year}'
     },
 
-    'Prosa Key': 'This is prosa!',  
+    'Prose Key': 'This is prose!',  
 
     namespaceA: {
         like: 'I like this namespace.',
@@ -78,7 +78,7 @@ And use it like this:
 ```JavaScript
 //simple
 t('like') => 'I like this.'
-t('Prosa Key') => 'This is prosa!'
+t('Prose Key') => 'This is prose!'
 
 //namespace support
 t('namespaceA::like') => 'I like this namespace.'
