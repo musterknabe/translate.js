@@ -38,13 +38,13 @@ First create a language specific object for your translations:
 var messages = {
     like: 'I like this.',
     likeThing: 'I like {thing}!',
-    simpleCounter: 'The count is {n}.',
+    simpleCounter: 'The count is {n}.', //{n} is automatically replace with count
     hits: {
         0: 'No Hits',
         1: '{n} Hit',
-        2: '{n} Hitse',  //some slavic langs have multiple plural forms
-        3: '{n} Hitses', //some slavic langs have multiple plural forms
-        n: '{n} Hits'
+        2: '{n} Hitse',  //some slavic languages have multiple plural forms
+        3: '{n} Hitses', //some slavic languages have multiple plural forms
+        n: '{n} Hits', //use 'n' as key to match everything not matched more explicitly
     },
     date: {
         1: '{day}. January {year}',
