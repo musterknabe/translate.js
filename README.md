@@ -45,6 +45,7 @@ var messages = {
         2: '{n} Hitse',  //some slavic languages have multiple plural forms
         3: '{n} Hitses', //some slavic languages have multiple plural forms
         n: '{n} Hits', //use 'n' as key to match everything not matched more explicitly
+        gt99: '99+ Hits' //greater than support (gtX where X is an integer)
     },
     date: {
         1: '{day}. January {year}',
@@ -92,6 +93,7 @@ t('hits', 0) => 'No Hits'
 t('hits', 1) => '1 Hit'
 t('hits', 3) => '3 Hitses'
 t('hits', 99) => '99 Hits'
+t('hits', 100) => '99+ Hits'
 
 //combined count and placeholders
 t('date', 2, {day: '13', year: 2014}) => '13. February 2014'

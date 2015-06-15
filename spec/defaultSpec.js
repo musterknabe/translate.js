@@ -8,7 +8,8 @@ describe("translate.js", function() {
             1: '{n} Hit',
             2: '{n} Hitse',  //some slavic langs have multiple plural forms
             3: '{n} Hitses', //some slavic langs have multiple plural forms
-            n: '{n} Hits'
+            n: '{n} Hits',
+            gt99: '99+ Hits' //greater than upper boundaries
         },
         date: {
             1: '{day}. January {year}',
@@ -22,7 +23,8 @@ describe("translate.js", function() {
             9: '{day}. September {year}',
             10: '{day}. October {year}',
             11: '{day}. November {year}',
-            12: '{day}. December {year}'
+            12: '{day}. December {year}',
+            gt12: 'The year {year} didn\'t end as expected' //greater than upper boundaries
         },
 
         'Prose Key': 'This is prose!',
@@ -103,6 +105,14 @@ describe("translate.js", function() {
 		expect(t('hits', 4)).toEqual('4 Hits');
 	});
 
+	it("should return a translated string with the correct plural form respecting grater than syntax (100)", function() {
+		expect(t('hits', 100)).toEqual('99+ Hits');
+	});
+
+	it("should return a translated string with the correct plural form respecting grater than syntax (100)", function() {
+		expect(t('hits', 100)).toEqual('99+ Hits');
+	});
+
 	it("should return a translated string with the correct plural form and replaced placeholders: t(key, replacements, count)", function() {
 		expect(t('date', {day: '13', year: 2014}, 2)).toEqual('13. February 2014');
 	});
@@ -111,6 +121,9 @@ describe("translate.js", function() {
 		expect(t('date', 2, {day: '13', year: 2014})).toEqual('13. February 2014');
 	});
 
+	it("should return a translated string with the correct plural form respecting grater than syntax and replaced placeholders: t(key, replacements, count)", function() {
+		expect(t('date', {year: 2014}, 13)).toEqual('The year 2014 didn\'t end as expected');
+	});
 
 	//every thing with namespace support
 	it("should return a translated string [namespace support]", function() {
@@ -151,6 +164,10 @@ describe("translate.js", function() {
 
 	it("should return a translated string with the correct plural form (4) [namespace support]", function() {
 		expect(t('namespaceA::hits', 4)).toEqual('4 Hits');
+	});
+
+	it("should return a translated string with the correct plural form respecting grater than syntax (100) [namespace support]", function() {
+		expect(t('hits', 100)).toEqual('99+ Hits');
 	});
 
 	it("should return a translated string with the correct plural form and replaced placeholders: t(key, replacements, count) [namespace support]", function() {
