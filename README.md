@@ -1,4 +1,4 @@
-translate.js (v1.0.1)
+translate.js (v1.1.0)
 =====================
 
 Javascript micro library for translations (i18n) with support for placeholders and multiple plural forms.

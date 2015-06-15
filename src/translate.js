@@ -1,7 +1,7 @@
 /**
  * Microlib for translations with support for placeholders and multiple plural forms.
  *
- * v1.0.1
+ * v1.1.0
  *
  * Usage:
  * var messages = {
@@ -63,13 +63,24 @@
 
             function getPluralValue(translation, count) {
                 if (isObject(translation)) {
-                    if(Object.keys(translation).length === 0) {
+                    var keys = Object.keys(translation);
+                    var upperCap;
+
+                    if(keys.length === 0) {
                         debug && console.log('[Translation] No plural forms found.');
                         return null;
                     }
 
+                    for(var i = 0; i < keys.length; i++) {
+                        if(keys[i].indexOf('gt') === 0) {
+                            upperCap = parseInt(keys[i].replace('gt', ''), 10);
+                        }
+                    }
+
                     if(translation[count]){
                         translation = translation[count];
+                    } else if(count > upperCap) { //int > undefined returns false
+                        translation = translation['gt' + upperCap];
                     } else if(translation.n) {
                         translation = translation.n;
                     } else {
