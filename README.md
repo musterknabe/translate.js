@@ -1,4 +1,4 @@
-translate.js (v1.0.0)
+translate.js (v1.1.0)
 =====================
 
 Javascript micro library for translations (i18n) with support for placeholders and multiple plural forms.
@@ -14,8 +14,9 @@ var messages = {
 }
 
 var options = {
-    debug: true, //[Boolean]: Logs missing translations to console and adds @@-markers around output. Defaults to false.
-    namespaceSplitter: '.' //[String|RegExp]: You can customize the part which splits namespace and translationKeys. Defaults to '::'.
+    // These are the defaults:
+    debug: false, //[Boolean]: Logs missing translations to console and adds @@-markers around output.
+    namespaceSplitter: '::' //[String|RegExp]: You can customize the part which splits namespace and translationKeys.
 }
 
 var t = libTranslate.getTranslationFunction(messages, [options])
@@ -38,13 +39,14 @@ First create a language specific object for your translations:
 var messages = {
     like: 'I like this.',
     likeThing: 'I like {thing}!',
-    simpleCounter: 'The count is {n}.',
+    simpleCounter: 'The count is {n}.', //{n} is automatically replace with count
     hits: {
         0: 'No Hits',
         1: '{n} Hit',
-        2: '{n} Hitse',  //some slavic langs have multiple plural forms
-        3: '{n} Hitses', //some slavic langs have multiple plural forms
-        n: '{n} Hits'
+        2: '{n} Hitse',  //some slavic languages have multiple plural forms
+        3: '{n} Hitses', //some slavic languages have multiple plural forms
+        n: '{n} Hits', //use 'n' as key to match everything not matched more explicitly
+        gt99: '99+ Hits' //greater than support (gtX where X is an integer)
     },
     date: {
         1: '{day}. January {year}',
@@ -61,7 +63,7 @@ var messages = {
         12: '{day}. December {year}'
     },
 
-    'Prosa Key': 'This is prosa!',  
+    'Prose Key': 'This is prose!',  
 
     namespaceA: {
         like: 'I like this namespace.',
@@ -78,7 +80,7 @@ And use it like this:
 ```JavaScript
 //simple
 t('like') => 'I like this.'
-t('Prosa Key') => 'This is prosa!'
+t('Prose Key') => 'This is prose!'
 
 //namespace support
 t('namespaceA::like') => 'I like this namespace.'
@@ -92,6 +94,7 @@ t('hits', 0) => 'No Hits'
 t('hits', 1) => '1 Hit'
 t('hits', 3) => '3 Hitses'
 t('hits', 99) => '99 Hits'
+t('hits', 100) => '99+ Hits'
 
 //combined count and placeholders
 t('date', 2, {day: '13', year: 2014}) => '13. February 2014'
