@@ -14,8 +14,9 @@ var messages = {
 }
 
 var options = {
-    debug: true, //[Boolean]: Logs missing translations to console and adds @@-markers around output. Defaults to false.
-    namespaceSplitter: '.' //[String|RegExp]: You can customize the part which splits namespace and translationKeys. Defaults to '::'.
+    // These are the defaults:
+    debug: false, //[Boolean]: Logs missing translations to console and adds @@-markers around output.
+    namespaceSplitter: '::' //[String|RegExp]: You can customize the part which splits namespace and translationKeys.
 }
 
 var t = libTranslate.getTranslationFunction(messages, [options])
