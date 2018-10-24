@@ -85,7 +85,7 @@ t('Prose Key') => 'This is prose!'
 //namespace support
 t('namespaceA::like') => 'I like this namespace.'
 
-//palceholders
+//placeholders
 t('likeThing', {thing: 'the Sun'}) => 'I like the Sun!'
 
 //count
