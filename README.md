@@ -5,6 +5,8 @@ Javascript micro library for translations (i18n) with support for placeholders a
 
 Size: ~800 bytes minified and gziped.
 
+:black_joker: *If you need more features (translations within translations, custom pluralize functions, npm support, etc.) check out [this fork] (https://github.com/StephanHoyer/translate.js).*
+
 Usage:
 ------
 
